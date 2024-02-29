@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@yield('title') -myBimbel</title>
+    <title>@yield('title') -myCourse</title>
     <meta name="description" content="Sufee Admin - HTML5 Admin Template">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-icon.png">
@@ -19,10 +19,6 @@
 </head>
 <body>
     
-    <script src="{{ asset('style/assets/js/vendor/jquery-2.1.4.min.js') }}"></script>
-    <script src="{{ asset('style/assets/js/popper.min.js') }}"></script>
-    <script src="{{ asset('style/assets/js/plugins.js') }}"></script>
-    <script src="{{ asset('style/assets/js/main.js') }}"></script>
  
     <aside id="left-panel" class="left-panel">
         <nav class="navbar navbar-expand-sm navbar-default">
@@ -30,21 +26,21 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="">MyBimbel</a>
+                <a class="navbar-brand" href="">MyCourse</a>
                 <a class="navbar-brand hidden" href="">M</a>
             </div>
  
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href=""> <i class="menu-icon fa fa-dashboard"></i>Home </a>
+                        <a href="{{url('home')}}"> <i class="menu-icon fa fa-dashboard"></i>Home </a>
                     </li>
                     <li>
-                        <a href=""> <i class="menu-icon fa fa-puzzle-piece"></i>Jenjang </a>
+                        <a href="{{url('/edulevel')}}"> <i class="menu-icon fa fa-puzzle-piece"></i>Data </a>
                     </li>
-                    <li>
-                        <a href=""> <i class="menu-icon fa fa-puzzle-piece"></i>Program </a>
-                    </li>
+                    <!-- <li>
+                        <a href="{{url('programs')}}"> <i class="menu-icon fa fa-puzzle-piece"></i>Program </a>
+                    </li> -->
                 </ul>
             </div><!-- /.navbar-collapse -->
         </nav>
@@ -120,34 +116,10 @@
         </header><!-- /header -->
  @yield('breadcrumbs')
 
- @yield('con')
-        <div class="breadcrumbs">
-            <div class="col-sm-4">
-                <div class="page-header float-left">
-                    <div class="page-title">
-                        <h1>Dashboard</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-8">
-                <div class="page-header float-right">
-                    <div class="page-title">
-                        <ol class="breadcrumb text-right">
-                            <li class="active"><i class="fa fa-dashboard"></i></li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
-        </div>
+ @yield('content')
+        
  
-        <div class="content mt-3">
- 
-            <div class="animated fadeIn">
-                Isi home
-            </div>
- 
-        </div>
-    </div>    
+           
  
 </body>
 </html>

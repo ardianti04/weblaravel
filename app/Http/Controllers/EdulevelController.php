@@ -2,11 +2,27 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EdulevelController extends Controller
 {
     public function data(){
-        return view('edulevel.data');
+        $edulevel=DB::table('edulevels')->get();
+        // return $edulevel;
+        // return view('edulevel.data',['edulevel'=>$edulevel])
+        return view('edulevel.data',compact('edulevel'));
+    }
+    public function add(){
+        return view('edulevel.add');
+    }
+    public function addProcess(Request $request)
+    {   
+        DB::table('edulevels')->insert([
+            'name' => $request->name,
+            'desc' => $request->desc,
+        ]);
+        return redirect('edulevel')->with('status', 'jenjang berhasil ditambah!');
     }
 }
