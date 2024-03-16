@@ -38,6 +38,9 @@ Route::get('home', function () {
 Route::get('/', function () {
     return view('main');
 });
+Route::get('login', function () {
+    return view('login');
+});
 
 
 Route::get('edulevel', [EdulevelController::class, 'data']);

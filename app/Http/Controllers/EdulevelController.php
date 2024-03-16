@@ -18,11 +18,17 @@ class EdulevelController extends Controller
         return view('edulevel.add');
     }
     public function addProcess(Request $request)
-    {   
-        DB::table('edulevels')->insert([
+    {
+        $data=[
             'name' => $request->name,
-            'desc' => $request->desc,
+            'desc' => $request->desc
+        ];
+        DB::table('edulevels')->insert($data);
+        return view('edulevel.data',[
+            'name' => $request->name,
+            'desc' => $request->desc
         ]);
-        return redirect('edulevel')->with('status', 'jenjang berhasil ditambah!');
+
+
     }
 }

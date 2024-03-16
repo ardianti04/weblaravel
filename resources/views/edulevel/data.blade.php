@@ -8,7 +8,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                       
+
                     </div>
                 </div>
             </div>
@@ -29,7 +29,7 @@
 
 @section('content')
 <div class="content mt-3">
- 
+
             <div class="animated fadeIn">
             @if (session('status'))
                 <div class="alert alert-success">
@@ -38,7 +38,7 @@
             @endif
 
                 <div class="card">
-                <div class="card-header"> 
+                <div class="card-header">
                     <div class="pull-left">
                          <strong>Data Jenjang</strong>
                     </div>
@@ -59,27 +59,27 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($edulevel as $item )
+                        {{-- @foreach ($edulevel as $item ) --}}
                         <tr>
-                            <td>{{$loop->iteration}}</td>
-                            <td>{{$item->name}}</td>
-                            <td>{{$item->desc}}</td>
+                            <td>1</td>
+                            <td>{{$name}}</td>
+                            <td>{{$desc}}</td>
                             <td class="text-center">
                                 <a href="" class="btn btn-primary btn-sm">
                                 <i class="fa fa-edit"></i>
                                 </a>
                             </td>
                         </tr>
-                            
-                        @endforeach
+
+                        {{-- @endforeach --}}
                     </tbody>
                 </table>
                 </div>
                 </div>
-               
+
             </div>
- 
+
         </div>
-    </div> 
-  
+    </div>
+
 @endsection
