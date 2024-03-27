@@ -8,7 +8,7 @@
         <div class="col-sm-4">
             <div class="page-header float-left">
                 <div class="page-title">
-                    <h1>Data</h1>
+                    <h1>Edulevel</h1>
                 </div>
             </div>
         </div>
@@ -17,12 +17,12 @@
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
                         <li><a href="#">Edulevel</a></li>
-                        <li class="active">Add</li>
+                        <li class="active">Edit</li>
                     </ol>
                 </div>
             </div>
         </div>
-    </div>
+    </di v>
 @endsection
 
 @section('content')
@@ -34,18 +34,17 @@
                 <!-- Form for name and address -->
                 <div class="card">
                     <div class="card-header">
-                        <form action="{{url('edulevel')}}" method="post">
+                        <form action="/edulevel/{{ $edulevel->id }}" method="post">
+                            @method('patch')
                             @csrf
-                            <h3 class="card-title">Tambah Jenjang</h3>
+                            <h3 class="card-title">Edit Jenjang</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
                         <form>
                             <div class="form-group">
                                 <label for="name">Nama jenjang</label>
-                                <input type="text" class="form-control  @error('name') is-invalid @enderror" name="name"
-                                value="{{ old('name') }}"
-                                placeholder="Masukkan nama jenjang">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name',$edulevel->name) }}">
                                 @error('name')
                                     <div class="invalid-feedback">
                                         {{ $message }}
@@ -54,10 +53,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="name">Description</label>
-                                <input type="text" class="form-control @error('desc') is-invalid @enderror" name="desc"
-                                value="{{ old('desc') }}"
-                                    placeholder="Masukkan Description">
-                                    @error('desc')
+                                <input type="text" class="form-control @error('desc') is-invalid @enderror" name="desc" value="{{ old('desc',$edulevel->desc) }}">
+                                @error('desc')
                                     <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>

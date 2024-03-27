@@ -3,6 +3,7 @@
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\EdulevelController;
+use App\Http\Controllers\ProgramController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -45,8 +46,14 @@ Route::get('login', function () {
 
 Route::get('edulevel', [EdulevelController::class, 'data']);
 
-Route::get('edulevel.add',[EdulevelController::class,'add']);
-Route::post('edulevel',[EdulevelController::class,'addProcess']);
+Route::get('edulevel.add', [EdulevelController::class,'add']);
+Route::post('edulevel', [EdulevelController::class, 'addProcess']);
+// Route::get('edulevel.edit.{id}',[EdulevelController::class,'edit']);
+Route::get('/edulevel/{id}/edit', [EdulevelController::class, 'edit'])->name('edit');
+Route::patch('/edulevel/{id}', [EdulevelController::class, 'editProcess']);
+Route::delete('/edulevel/{id}', [EdulevelController::class, 'delete']);
+
+Route::resource('programs', ProgramController::class);
 
 // Route::get('/',[TemplateController::class,'index']);
 
