@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     echo 'Checking out repository...'
-                    git branch: 'main', url: 'https://github.com/Akmalamilunnizar/restaurant'
+                    git branch: 'main', url: 'https://github.com/ardianti04/weblaravel.git'
                 }
             }
         }
